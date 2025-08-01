@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Video Playback Test</title>
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+    #start-btn {
+      background: #00c853;
+      color: white;
+      font-size: 20px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    video {
+      width: 100%;
+      height: auto;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <button id="start-btn">Tap to Start</button>
+  <video id="myVideo" controls autoplay>
+    <source src="facade.mp4" type="video/mp4">
+    <track src="captions.vtt" kind="subtitles" srclang="en" label="English" default>
+    Your browser does not support HTML5 video.
+  </video>
+
+  <script>
+    const btn = document.getElementById('start-btn');
+    const vid = document.getElementById('myVideo');
+
+    btn.addEventListener('click', () => {
+      btn.style.display = 'none';
+      vid.style.display = 'block';
+      vid.play();
+    });
+  </script>
+
+</body>
+</html>
